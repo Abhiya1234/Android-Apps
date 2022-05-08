@@ -1,8 +1,10 @@
 
+
 package com.example.registrationpage;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -55,7 +57,41 @@ public class createAccountPage extends AppCompatActivity {
                 String address = Address.getText().toString();
                 String password = password2.getText().toString();
 
-
+                if(name.isEmpty()){
+                    Name2.setError("Name Is Required! ");
+                    Name2.requestFocus();
+                    return;
+                }
+                if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                    nameEmail.setError("Please Provide Valid Email Address");
+                    nameEmail.requestFocus();
+                    return;
+                }
+                if(mobile.isEmpty()){
+                    mobileno.setError("Mobile no is Required");
+                    mobileno.requestFocus();
+                    return;
+                }
+                if(Aadharno.isEmpty()){
+                    Aadhar.setError("Aadhar Is Required");
+                    Aadhar.requestFocus();
+                    return;
+                }
+                if(address.isEmpty()){
+                    Address.setError("Address is Required");
+                    Address.requestFocus();
+                    return;
+                }
+                if(password.isEmpty()){
+                    password2.setError("Password is Required!");
+                    password2.requestFocus();
+                    return;
+                }
+                if(password.length()<6){
+                    password2.setError("Min Password Length should be 6 characters!");
+                    password2.requestFocus();
+                    return;
+                }
 
                 Map<String,Object> user = new HashMap<>();
                 user.put("Name",name);
