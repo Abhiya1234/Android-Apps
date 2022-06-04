@@ -67,24 +67,19 @@ public class createAccountPage extends AppCompatActivity {
                     nameEmail.requestFocus();
                     return;
                 }
-                if(mobile.isEmpty()){
-                    mobileno.setError("Mobile no is Required");
+                if(mobile.length() != 10){
+                    mobileno.setError("Enter the Valid Mobile Number.");
                     mobileno.requestFocus();
                     return;
                 }
-                if(Aadharno.isEmpty()){
-                    Aadhar.setError("Aadhar Is Required");
+                if(Aadharno.length() != 16){
+                    Aadhar.setError("Enter the valid Aadhaar Number");
                     Aadhar.requestFocus();
                     return;
                 }
                 if(address.isEmpty()){
                     Address.setError("Address is Required");
                     Address.requestFocus();
-                    return;
-                }
-                if(password.isEmpty()){
-                    password2.setError("Password is Required!");
-                    password2.requestFocus();
                     return;
                 }
                 if(password.length()<6){
