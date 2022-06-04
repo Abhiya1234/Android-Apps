@@ -42,6 +42,29 @@ public class Person_info extends AppCompatActivity {
                String LocalPoliceStation = LocalPoliceSta.getText().toString();
                String LocalParentNumber = LocalParentNo.getText().toString();
                String OtherPhoneNumber = OtherPhoneNo.getText().toString();
+               
+               if(LocalAdd.isEmpty()){
+                   LocalAddress.setError("Local Address Required.");
+                   LocalAddress.requestFocus();
+                   return;
+               }
+               if(LocalPoliceStation.isEmpty()){
+                   LocalPoliceSta.setError("Local Police Station Required");
+                   LocalPoliceSta.requestFocus();
+                   return;
+               }
+               if(LocalParentNumber.length() != 10){
+                   LocalParentNo.setError("Invalid Mobile Number.Please re-enter the number.");
+                   LocalParentNo.requestFocus();
+                   return;
+               }
+               if(OtherPhoneNumber.length() != 10){
+                   OtherPhoneNo.setError("Invalid Mobile Number.");
+                   OtherPhoneNo.requestFocus();
+                   return;
+               }
+               
+               
                Map<String,Object> user = new HashMap<>();
                user.put("Local Address",LocalAdd);
                user.put("Local Police Station",LocalPoliceStation);
